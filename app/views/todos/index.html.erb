@@ -1,0 +1,30 @@
+<div class="row">
+ <div class="col-sm-3 bg-light">
+<strong>New Task</strong><br>
+<%= form_for(@task) do |f| %>
+  <p><%= f.label :state %><br>
+  <%= f.text_field :state ,placeholder:'Start or End',class:'form-control' %></p>
+
+  <p><%= f.label :task %><br>
+  <%= f.text_field :task ,placeholder:'Taskname',class:'form-control' %></p>
+
+  <p><%= f.label :limit_date %><br>
+  <%= f.date_field :limit_date ,class:'form-control' %></p>
+
+  <div><%= f.submit 'Submit',class:'btn btn-dark' %></div>
+<% end %>
+ </div>
+ <div class="col-sm-9">
+ <strong>Task Name</strong>
+<% @tasks.each do |task| %>
+  <ul class="list-group">
+    <li class="list-group-item">
+    <%= task.state %> <%= task.task %> <%= task.limit_date %> 
+    <div class="text-right">
+    <%= link_to '編集', edit_todo_path(task) ,class:'btn btn-success' %> <%= link_to '削除', todo_path(task), method: :delete ,class:'btn btn-danger' %>
+     </div>
+    </li>
+  </ul>
+<% end %>
+ </div>
+</div>

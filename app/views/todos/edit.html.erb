@@ -1,0 +1,18 @@
+<div class="row">
+ <div class="col-sm-12">
+<h1>タスク編集</h1>
+<%= form_for(@task) do |f| %>
+    <p><%= f.label :state %><br>
+    <%= f.text_field :state ,class:'form-control' %></p>
+  
+    <p><%= f.label :task %><br>
+    <%= f.text_field :task ,class:'form-control' %></p>
+  
+    <p><%= f.label :limit_date %><br>
+    <%= f.date_field :limit_date ,class:'form-control' %></p>
+
+  <div><%= f.submit 'Update',class:'btn btn-success' %></div>
+<% end %>
+<%= link_to '戻る', todos_path ,class:'btn btn-dark mt-3' %>
+</div>
+ </div>
